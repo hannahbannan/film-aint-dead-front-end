@@ -1,0 +1,25 @@
+.featured {
+    max-width: 80vw;
+    margin: 0 auto;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+    .feature-container {
+        display: block;
+        width: 90vw;
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 1000px) {
+
+}

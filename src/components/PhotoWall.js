@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Photo from "./Photo";
+import "./PhotoWall.css";
+import FeaturePhoto from "./FeaturePhoto"
 
 const PhotoWall = () => {
   const [pData, setpData] = useState([]);
@@ -17,9 +19,9 @@ const PhotoWall = () => {
     makeAPICall();
   }, []);
 
-  console.log(pData);
-
-  const photosArr = pData.map((el) => {
+  const shuffleData = pData.sort(() => Math.random() - 0.5).splice(0,100);
+  
+  const photosArr = shuffleData.map((el) => {
     return (
       <Photo
         key={el._id}
@@ -27,16 +29,18 @@ const PhotoWall = () => {
         caption={el.caption}
         takenBy={el.takenBy}
         date={el.date}
+        className="grid-photo"
       />
     );
-    console.log(el._id);
   });
 
   return (
-    <div className="photos-container">
-      <p>Lots of film to come</p>
-      {photosArr}
-    </div>
+    <>
+      <div className="feature">
+        <FeaturePhoto shuffleData={shuffleData} />
+      </div>
+      <div className="photos-container">{photosArr}</div>
+    </>
   );
 };
 

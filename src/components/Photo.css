@@ -1,0 +1,34 @@
+.single-photo {
+  padding: 8px;
+  position: cover;
+}
+
+.description {
+  display: none;
+}
+
+img {
+  width: 300px;
+  filter: grayscale(100%);
+  object-fit: cover;
+}
+img:hover {
+  filter: none;
+}
+
+
+@media screen and (max-width: 500px) {
+  img {
+    width: 90%;
+    filter: grayscale(100%);
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  img {
+    width: 300px;
+    filter: grayscale(100%);
+    margin: 0 auto;
+  }
+}
